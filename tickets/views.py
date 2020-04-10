@@ -53,14 +53,3 @@ class HelloView(APIView):
     def get(self, request):
         content = {'message': 'Hello world'}
         return Response(content)
-
-
-def handler404(request, exception):
-    message = "'/%s' path not found" % (exception.args[0].get('path'))
-    data = {'error': message}
-    return HttpResponse(json.dumps(data), content_type="application/json", status=status.HTTP_404_NOT_FOUND)
-
-
-def handler500(request):
-    data = {'error': 'error 500'}
-    return HttpResponse(json.dumps(data), content_type='application/json', status=status.HTTP_500_INTERNAL_SERVER_ERROR)
