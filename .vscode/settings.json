@@ -1,0 +1,19 @@
+{
+    "python.pythonPath": "venv-dropplets/bin/python3",
+    "editor.rulers": [80, 160],
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django",
+        "--disable=C0111",
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "autopep8",
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.formatOnSave": false,
+    },
+    "[js]": {
+        "editor.formatOnSave": false,
+    },
+    "python.linting.enabled": true
+}
