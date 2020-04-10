@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "venv-dropplets/bin/python3",
+    "python.pythonPath": "/Users/carleslopezmagem/PersonalProjects/ticket-backend/env/bin/python3",
     "editor.rulers": [80, 160],
     "python.linting.pylintArgs": [
         "--load-plugins",

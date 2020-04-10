@@ -92,9 +92,9 @@ WSGI_APPLICATION = 'tickets_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('SQL_ENGINE', 'django.db.backends.postgresql'),
+        'ENGINE': os.getenv('SQL_ENGINE', 'django.db.backends.mysql'),
         'NAME': os.getenv('SQL_DATABASE', 'ticketsBackend'),
-        'USER': os.getenv('SQL_USER', 'root'),
+        'USER': os.getenv('SQL_USER', 'ticketsBackend'),
         'PASSWORD': os.getenv('SQL_PASSWORD', 'tickets1234'),
         'HOST': os.getenv('SQL_HOST', 'localhost'),
         'PORT': os.getenv('SQL_PORT', '3306'),
