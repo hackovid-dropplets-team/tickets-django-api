@@ -6,19 +6,21 @@ from rest_framework.fields import empty
 from .models import Ticket, Volunteering
 
 
-class TicketSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Ticket
-        fields = '__all__'
-
-
-class VolunteeringSerializer(serializers.HyperlinkedModelSerializer):
+class VolunteeringSerializer(serializers.ModelSerializer):
     class Meta:
         model = Volunteering
         fields = '__all__'
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        fields = ['id', 'username']
+
+
+class TicketSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Ticket
+        fields = '__all__'
