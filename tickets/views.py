@@ -1,6 +1,5 @@
 from rest_framework import viewsets
-from . import serializers
-from . import models
+from . import serializers, models, permissions
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -10,6 +9,7 @@ from rest_framework import status
 class TicketsViewSet(viewsets.ModelViewSet):
     queryset = models.Ticket.objects.all()
     serializer_class = serializers.TicketSerializer
+    permission_classes = [permissions.IsOwnerOrReadOnly]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
