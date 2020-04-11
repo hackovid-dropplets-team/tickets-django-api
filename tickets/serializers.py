@@ -23,4 +23,5 @@ class TicketSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ticket
+        depth = 1
         fields = '__all__'
