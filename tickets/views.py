@@ -37,6 +37,9 @@ class TicketsViewSet(viewsets.ModelViewSet):
                     )
                 ))
             order_by = ['score', *order_by]
+        iam_owner = self.request.query_params.get('iamOwner', False)
+        if iam_owner:
+            queryset = queryset.filter(owner=self.request.user)
         return queryset.order_by(*order_by)
 
 
