@@ -19,9 +19,14 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class TicketSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    owner = UserSerializer(read_only=True)
+    is_owner = serializers.SerializerMethodField(read_only=True)
+    requires_context = True
 
     class Meta:
         model = Ticket
         depth = 1
         fields = '__all__'
+
+    def get_is_owner(self, value):
+        return value.owner.id == self.context['request'].user.id
